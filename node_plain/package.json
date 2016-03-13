@@ -1,0 +1,17 @@
+{
+  "name": "node_plain",
+  "version": "0.0.1",
+  "description": "Hot Swapping within a node server.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Andreas Zwettler",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "express": "^4.13.4",
+    "socket.io": "^1.4.5",
+    "uid": "0.0.2"
+  }
+}
