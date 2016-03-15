@@ -28,3 +28,12 @@ It exists as the practical part to my Bachelors Thesis.
   Cleanup wenn namespaces leer werden
   Auflisten wer sich im Namespace befindet
   Dependencies des neu geladeten Moduls beobachten und Module bei deren Change auch ändern.
+
+
+# Node
+Run: node_plain -> node server.js
+Change: server_modules/socket_handler.js Will be reloaded without error checking(!)
+
+
+# Phoenix
+Postgres starten. mix ecto.create mix phoenix.server

@@ -66,7 +66,7 @@ function initializeNewSocketNameSpace() {
   });
 }
 
-var fsTimeout;
+var fsTimeout = false;
 fs.watch('./server_modules/socket_handler.js', function(e) {
     if (!fsTimeout) {
       var name = require.resolve('./server_modules/socket_handler.js');
@@ -74,7 +74,7 @@ fs.watch('./server_modules/socket_handler.js', function(e) {
       socketHandler = require('./server_modules/socket_handler.js');
       initializeNewSocketNameSpace();
       cleanEmptyNameSpaces();
-      fsTimeout = setTimeout(function() { fsTimeout=null }, 2500)
+      fsTimeout = setTimeout(function() { fsTimeout=false }, 2500)
     }
 });
 
