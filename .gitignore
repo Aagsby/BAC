@@ -8,21 +8,23 @@ node_plain/node_modules
 # Phoenix
 
 # App artifacts
-phoenix_plain/_build
-phoenix_plain/db
-phoenix_plain/deps
-phoenix_plain/*.ez
+elixir_exrm/_build
+elixir_exrm/db
+elixir_exrm/deps
+elixir_exrm/rel
+relx
+elixir_exrm/**/*.ez
 
 # Generate on crash by the VM
 erl_crash.dump
 
 # Static artifacts
-phoenix_plain/node_modules
+elixir_exrm/node_modules
 
 # Since we are building assets from web/static,
 # we ignore priv/static. You may want to comment
 # this depending on your deployment strategy.
-phoenix_plain/priv/static/
+elixir_exrm/priv/static/
 
 # The config/prod.secret.exs file by default contains sensitive
 # data and you should not commit it into version control.
@@ -30,4 +32,5 @@ phoenix_plain/priv/static/
 # Alternatively, you may comment the line below and commit the
 # secrets file as long as you replace its contents by environment
 # variables.
-phoenix_plain/config/prod.secret.exs
+elixir_exrm/config/prod.secret.exs
+

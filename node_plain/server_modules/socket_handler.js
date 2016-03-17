@@ -1,8 +1,7 @@
-var initializeHandlers = function(socket,nsp) {
-  nsp.emit('debug','Connected to namespace');
+var initializeHandlers = function(socket) {
   socket.on('test_ping', function(time) {
-    nsp.to(socket.id).emit('test_pong', time);
-    nsp.to(socket.id).emit('change_color', randomColourGrayScale());
+    socket.emit('test_pong', time);
+    socket.emit('change_color', randomColourGrayScale());
   });
 }
 
@@ -19,6 +18,4 @@ function ranInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-module.exports = {
-  initializeHandlers: initializeHandlers
-}
+module.exports = initializeHandlers
