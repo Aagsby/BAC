@@ -12,6 +12,7 @@ elixir_exrm/_build
 elixir_exrm/db
 elixir_exrm/deps
 elixir_exrm/rel
+elixir_exrm/deploy
 relx
 elixir_exrm/**/*.ez
 
