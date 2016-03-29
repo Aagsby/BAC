@@ -8,7 +8,6 @@ var path = require('path');
 // Hot Swapping Modules
 var fs = require('fs');
 
-
 app.use("", express.static(path.join(__dirname, 'client/public')));
 
 app.get('/', function(req, res){
@@ -23,6 +22,8 @@ fs.watch('./server_modules/socket_handler.js', function(e) {
       var name = require.resolve('./server_modules/socket_handler.js');
       delete require.cache[name];
       socketHandler = require('./server_modules/socket_handler.js');
+      io.emit('server_change');
+      console.log('socketHandler changed');
       fsTimeout = setTimeout(function() { fsTimeout=false }, 2500)
     }
 });
