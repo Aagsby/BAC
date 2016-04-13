@@ -14,8 +14,9 @@ socket.on('change_color', function(color) {
   $('html').css('background', color);
 });
 
-socket.on('test_pong', function(time) {
-  console.log($.now() - time + 'ms');
+socket.on('test_pong', function(data) {
+  console.log($.now() - data.time + 'ms');
+  document.getElementById('counter').innerHTML = data.c;
   setTimeout(function(){
     console.log('sent time')
     socket.emit('test_ping', $.now());

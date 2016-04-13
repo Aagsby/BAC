@@ -1,6 +1,11 @@
+var moduleState = {
+  counter: 0
+}
+
 var initializeHandlers = function(socket) {
   socket.on('test_ping', function(time) {
-    socket.emit('test_pong', time);
+    moduleState.counter += 1;
+    socket.emit('test_pong', {time: time, c: moduleState.counter});
     socket.emit('change_color', randomColourGrayScale());
   });
 }

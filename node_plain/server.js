@@ -17,16 +17,29 @@ app.get('/', function(req, res){
 var socketHandler = require('./server_modules/socket_handler.js');
 
 var fsTimeout = false;
-fs.watch('./server_modules/socket_handler.js', function(e) {
-    if (!fsTimeout) {
-      var name = require.resolve('./server_modules/socket_handler.js');
-      delete require.cache[name];
-      socketHandler = require('./server_modules/socket_handler.js');
-      io.emit('server_change');
-      console.log('socketHandler changed');
-      fsTimeout = setTimeout(function() { fsTimeout=false }, 2500)
-    }
+
+
+function addModuleChangeListener(module, config) {
+  fs.watch(module, function(e) {
+      if (!fsTimeout) {
+        if(typeof config === 'object' && typeof config.pre === 'function') {
+          config.pre();
+        }
+        var name = require.resolve(module);
+        delete require.cache[name];
+        socketHandler = require(module);
+        fsTimeout = setTimeout(function() { fsTimeout=false }, 2500)
+        if(typeof config === 'object' && typeof config.post === 'function') {
+          config.post();
+        }
+      }
+  });
+}
+
+addModuleChangeListener('./server_modules/socket_handler.js', {
+  post: function(){io.emit('server_change')}
 });
+//addModuleChangeListener('./server_modules/other_module.js');
 
 io.on('connection', function(socket){
   socketHandler(socket);

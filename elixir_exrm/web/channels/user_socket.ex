@@ -1,8 +1,10 @@
 defmodule PhoenixExrm.UserSocket do
   use Phoenix.Socket
+  require Logger
 
   ## Channels
   channel "connection:*", PhoenixExrm.ConnectionChannel
+
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
@@ -20,6 +22,7 @@ defmodule PhoenixExrm.UserSocket do
   # See `Phoenix.Token` documentation for examples in
   # performing token verification on connect.
   def connect(_params, socket) do
+    #socket = Map.merge(socket, %{counter: 0})
     {:ok, socket}
   end
 

@@ -13,8 +13,8 @@ use Mix.Config
 # which you typically run after static files are built.
 config :phoenix_exrm, PhoenixExrm.Endpoint,
   http: [port: 8888],
+  debug_errors: true,
   url: [host: "127.0.0.1", port: 8888],
-  cache_static_manifest: "priv/static/manifest.json",
   server: true
 
 # Do not print debug messages in production

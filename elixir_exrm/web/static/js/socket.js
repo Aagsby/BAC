@@ -12,7 +12,8 @@ socket.connect()
 let channel = socket.channel("connection:lobby", {})
 
 channel.on("test_pong", data => {
-	console.log($.now() - data.time)
+	console.log(($.now() - data.time) + 'ms')
+  $('#counter').html(data.counter)
 	setTimeout(function(){channel.push("test_ping",{time: $.now()})}, 1000);
 });
 

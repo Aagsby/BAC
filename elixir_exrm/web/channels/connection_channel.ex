@@ -1,12 +1,13 @@
 defmodule PhoenixExrm.ConnectionChannel do
 	use Phoenix.Channel
+	require Logger
 
 	def join("connection:lobby", _message, socket) do
 		{:ok, socket}
 	end
 
 	def handle_in("test_ping", %{"time" => time}, socket) do
-		broadcast! socket, "test_pong", %{time: time}
+		broadcast! socket, "test_pong", %{time: time, counter: Counter.click}
 		broadcast! socket, "color", %{c: randomColour()}
 		{:noreply, socket}
 	end

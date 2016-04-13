@@ -76,3 +76,9 @@ form.link, form.button {
     border-bottom: 0;
   }
 }
+
+#counter {
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 24px;
+}

@@ -11,6 +11,7 @@ defmodule PhoenixExrm do
       supervisor(PhoenixExrm.Endpoint, []),
       # Start the Ecto repository
       supervisor(PhoenixExrm.Repo, []),
+      worker(Counter, []),
       # Here you could define other workers and supervisors as children
       # worker(PhoenixExrm.Worker, [arg1, arg2, arg3]),
     ]

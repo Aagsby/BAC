@@ -14,5 +14,6 @@
   <body>
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+    <div id="counter"></div>
   </body>
 </html>
