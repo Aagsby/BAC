@@ -7,8 +7,8 @@ defmodule PhoenixExrm.ConnectionChannel do
 	end
 
 	def handle_in("test_ping", %{"time" => time}, socket) do
-		broadcast! socket, "test_pong", %{time: time, counter: Counter.click}
-		broadcast! socket, "color", %{c: randomColour()}
+		push socket, "test_pong", %{time: time, counter: Counter.click}
+		push socket, "color", %{c: randomColourGrayScale()}
 		{:noreply, socket}
 	end
 

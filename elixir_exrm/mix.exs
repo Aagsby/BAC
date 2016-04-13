@@ -3,7 +3,7 @@ defmodule PhoenixExrm.Mixfile do
 
   def project do
     [app: :phoenix_exrm,
-     version: "0.0.8",
+     version: "0.0.11",
      elixir: "~> 1.0",
      elixirc_paths: elixirc_paths(Mix.env),
      compilers: [:phoenix, :gettext] ++ Mix.compilers,
